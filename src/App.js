@@ -77,50 +77,50 @@ const App = () => {
   const [personal, setPersonal] = useState({
     thaiName: 'กานต์พิชชา นกดำ',
     engName: 'Kanpichcha Nokdam',
-    address: '39  ม.10 ต.ห้วยกระเจา อ.ห้วยกระเจา จ.กาญจนบุรี 71170',
-    tel: '0645454615',
+    address: '39 ม.10 ต.ห้วยกระเจา อ.ห้วยกระเจา จ.กาญจนบุรี 71170',
+    tel: '064-5454615',
     memberNo: '3575',
     memberType: 'ordinary',
     farmName: 'K39 Ranch',
   })
   const [cattle, setCattle] = useState({
-    name: '55014PYK',
-    id: 'PYK 14/55',
-    regNo: '16/2555',
+    name: '',
+    id: '',
+    regNo: '',
     owner: 'ยอดชาย แก้วเรือง',
-    ownerTel: '0645454615',
-    breeder: 'ไร่หมวดฟาร์ม ฟาร์มเครือข่าย กรมปศุสัตว์',
+    ownerTel: '085-0981111',
+    breeder: 'YK ฟาร์ม ฟาร์มเครือข่าย กรมปศุสัตว์',
     association: 'livestock',
   })
   const [cattleSemen, setCattleSemen] = useState({
-    id: 'ABBA#: 875813',
-    name: '+SRS MR. TROUBADOR 933',
-    inseminationType: 'AI',
-    date: '24/02/2022',
+    id: '',
+    name: '',
+    inseminationType: '',
+    date: '',
   })
   const [child, setChild] = useState({
-    gender: 'male',
-    dob: '24/02/2022',
-    sire: '+SRS MR. TROUBADOR 933',
-    sireReg: 'ABBA#: 875813',
+    gender: '',
+    dob: '',
+    sire: '',
+    sireReg: '',
   })
   const [lastChild, setLastChild] = useState({
-    dob: '24/02/2022',
-    sire: '+SRS MR. TROUBADOR 933',
-    association: 'สมาคมส่งเสริม',
-    regNo: 'ABBA#: 875813',
+    dob: '',
+    sire: '',
+    association: '',
+    regNo: '',
   })
   const [dna, setDna] = useState({
     type: 'self', //paternity, maternity, parent
     selfType: 'blood', //tail,semen
-    sireName: '+SRS MR. TROUBADOR 933',
-    damName: '+SRS MR. TROUBADOR 933',
-    sireId: 'ABBA#: 875813',
-    damId: 'ABBA#: 875813',
-    sireReg: '16/2555',
-    damReg: '16/2555',
-    sireType: 'blood', //tail,semen
-    damType: 'blood', //tail,semen
+    sireName: '',
+    damName: '',
+    sireId: '',
+    damId: '',
+    sireReg: '',
+    damReg: '',
+    sireType: '', //tail,semen
+    damType: '', //tail,semen
   })
 
   const handlePersonalChanges = (name, e) => {

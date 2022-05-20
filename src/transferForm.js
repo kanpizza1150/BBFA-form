@@ -125,11 +125,13 @@ const DnaForm = ({
         <Line points={[713, 1253, 743, 1214]} {...commonLineProps} />
         {inseminationDate()}
       </Group>
-    ) : (
+    ) : cattleSemen.inseminationType === 'RI' ? (
       <Group>
         <Line points={[120, 1205, 155, 1248]} {...commonLineProps} />
         <Line points={[120, 1248, 155, 1205]} {...commonLineProps} />
       </Group>
+    ) : (
+      <></>
     )
   }
   const childAlong = () => {
@@ -137,7 +139,13 @@ const DnaForm = ({
     return (
       <Group>
         <Text
-          text={child.gender === 'male' ? 'ผู้' : 'เมีย'}
+          text={
+            child.gender === 'male'
+              ? 'ผู้'
+              : child.gender === 'female'
+              ? 'เมีย'
+              : ''
+          }
           x={295}
           y={1293}
           {...commonTextProps}
