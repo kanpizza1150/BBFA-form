@@ -1,17 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import transferForm from './transferForm.png'
 import { Stage, Layer, Image, Text, Line, Group } from 'react-konva'
-import { Button } from '@mui/material'
 
-const DnaForm = ({
-  cattleImg,
-  personal,
-  cattle,
-  farmLogo,
-  cattleSemen,
-  child,
-  lastChild,
-}) => {
+const DnaForm = ({ cattleImg, personal, cattle, farmLogo, cattleSemen, child, lastChild }) => {
   const [image, setImage] = useState()
   const [cattleImage, setCattleImage] = useState()
   const [farmImage, setFarmImage] = useState()
@@ -26,18 +18,6 @@ const DnaForm = ({
     loadImage(farmLogo, setFarmImage)
   }, [])
 
-  const downloadURI = (uri, name) => {
-    var link = document.createElement('a')
-    link.download = name
-    link.href = uri
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
-  const handleExport = () => {
-    const uri = stageRef.current.toDataURL()
-    downloadURI(uri, `BBFA005-${cattle.name}`)
-  }
   const loadImage = (img, setter) => {
     const tempImage = new window.Image()
     tempImage.src = img
@@ -58,8 +38,10 @@ const DnaForm = ({
   const memberType =
     personal.memberType === 'ordinary' ? (
       <Line points={[960, 825, 1020, 825]} {...commonLineProps} />
-    ) : (
+    ) : personal.memberType === 'extraordinary' ? (
       <Line points={[900, 825, 950, 825]} {...commonLineProps} />
+    ) : (
+      <></>
     )
   const associationCheck = () => {
     switch (cattle.association) {
@@ -139,13 +121,7 @@ const DnaForm = ({
     return (
       <Group>
         <Text
-          text={
-            child.gender === 'male'
-              ? 'ผู้'
-              : child.gender === 'female'
-              ? 'เมีย'
-              : ''
-          }
+          text={child.gender === 'male' ? 'ผู้' : child.gender === 'female' ? 'เมีย' : ''}
           x={295}
           y={1293}
           {...commonTextProps}
@@ -165,12 +141,7 @@ const DnaForm = ({
         <Text text={dateSplited[0]} x={530} y={1370} {...commonTextProps} />
         <Text text={dateSplited[1]} x={600} y={1370} {...commonTextProps} />
         <Text text={dateSplited[2]} x={660} y={1370} {...commonTextProps} />
-        <Text
-          text={lastChild.association}
-          x={900}
-          y={1370}
-          {...commonTextProps}
-        />
+        <Text text={lastChild.association} x={900} y={1370} {...commonTextProps} />
         <Text text={lastChild.regNo} x={280} y={1410} {...commonTextProps} />
       </Group>
     )

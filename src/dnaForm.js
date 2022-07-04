@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import dnaTestForm from './dnaTestForm.png'
 import { Stage, Layer, Image, Text, Line, Group } from 'react-konva'
@@ -37,8 +38,10 @@ const DnaForm = ({ cattleImg, personal, cattle, farmLogo, dna }) => {
   const memberType =
     personal.memberType === 'ordinary' ? (
       <Line points={[940, 803, 1000, 803]} {...commonLineProps} />
-    ) : (
+    ) : personal.memberType === 'extraordinary' ? (
       <Line points={[880, 803, 930, 803]} {...commonLineProps} />
+    ) : (
+      <></>
     )
 
   const checkItem = (x, y) => {
